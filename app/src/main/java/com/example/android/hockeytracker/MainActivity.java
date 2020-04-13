@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
     int homeScore = 0;
     int homeSOG = 0;
     int homeHits = 0;
-    double homeSavePercentage = 1.000;
+    float homeSavePercentage = 1;
     int awayScore = 0;
     int awaySOG = 0;
     int awayHits = 0;
-    double awaySavePercentage = 1.000;
+    float awaySavePercentage = 1;
 
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public void homeTeamGoal(View view) {
         homeScore += 1;
         homeSOG += 1;
-        awaySavePercentage = ((double) homeSOG - (double) homeScore) / (double) homeSOG;
+        awaySavePercentage = ((float) (homeSOG - homeScore) / homeSOG);
         displayHomeScore(homeScore);
         displayHomeSOG(homeSOG);
         displayAwaySavePercentage(awaySavePercentage);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void homeTeamSOG(View view) {
         homeSOG += 1;
-        awaySavePercentage = ((double) homeSOG - (double) homeScore) / (double) homeSOG;
+        awaySavePercentage = ((float) (homeSOG - homeScore) / homeSOG);
         displayHomeSOG(homeSOG);
         displayAwaySavePercentage(awaySavePercentage);
     }
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public void awayTeamGoal(View view) {
         awayScore += 1;
         awaySOG += 1;
-        homeSavePercentage = ((double) awaySOG - (double) awayScore) / (double) awaySOG;
+        homeSavePercentage = ((float) (awaySOG - awayScore) / awaySOG);
         displayAwayScore(awayScore);
         displayAwaySOG(awaySOG);
         displayHomeSavePercentage(homeSavePercentage);
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void awayTeamSOG(View view) {
         awaySOG += 1;
-        homeSavePercentage = ((double) awaySOG - (double) awayScore) / (double) awaySOG;
+        homeSavePercentage = ((float) (awaySOG - awayScore) / awaySOG);
         displayAwaySOG(awaySOG);
         displayHomeSavePercentage(homeSavePercentage);
     }
